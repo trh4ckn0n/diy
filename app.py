@@ -34,7 +34,7 @@ def index():
 def ask_gpt():
     user_question = request.form["question"]
 
-    # Définition du prompt pour GPT-4 (ajout des images dans les réponses)
+    # Définition du prompt pour GPT-4
     system_prompt = (
         "Tu es un expert en électromagnétisme DIY, électricité et bricolage. "
         "Ce projet a été conçu par **Trhacknon** pour aider les jeunes à fabriquer un électro-aimant ejecteur de clou "
@@ -77,18 +77,19 @@ def ask_gpt():
     answer_html = response["choices"][0]["message"]["content"]
 
     # Génération d'images pour chaque étape
-    # On extrait les différentes étapes du tutoriel pour générer une image correspondante
+    # On génère maintenant les URLs réelles pour chaque image
     image_url_1 = generate_image("Image of an electromagnet in action with a nail being ejected, showing the copper wire and battery.")
     image_url_2 = generate_image("Tools needed for an electromagnet project, including copper wire, battery, and a nail.")
     image_url_3 = generate_image("Step-by-step process of building an electromagnet: wrapping wire around a tube, connecting to a battery.")
 
-    # Remplacer les URL dans le HTML généré par les images pertinentes
-    answer_html = answer_html.replace("URL_DE_L_IMAGE_1", image_url_1, 1)
-    answer_html = answer_html.replace("URL_DE_L_IMAGE_2", image_url_2, 1)
-    answer_html = answer_html.replace("URL_DE_L_IMAGE_3", image_url_3, 1)
+    # Remplacer les placeholders dans le HTML généré par les images
+    # Assurez-vous d'utiliser les URL réelles obtenues de DALL·E
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_1", image_url_1)
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_2", image_url_2)
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_3", image_url_3)
 
     # Retourner la réponse dans la page HTML
     return render_template("index.html", response=Markup(answer_html))
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=False, host="0.0.0.0")
