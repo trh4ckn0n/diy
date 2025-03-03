@@ -97,12 +97,7 @@ def ask_gpt():
 
     # Générer une image pour accompagner le tutoriel
     image_description = """
-    A close-up of an electromagnet in action, showing a strong copper wire wound around a plastic tube, 
-    powered by a 9V battery, with a steel nail being ejected by the force of the magnetic field. 
-    The image highlights the bright, shiny copper wire, the electric connections, and the visible sparks 
-    indicating the flow of electricity. The nail is being propelled out of the center of the coil, showcasing the power of the electromagnet.
-    There should be a dynamic feel to the image, with motion blur on the nail to emphasize its rapid ejection, 
-    and a clear focus on the components of the electromagnet, such as the battery, copper wire, and nail.
+    An electromagnet project in action. A close-up of a copper wire wound around a plastic tube, powered by a 9V battery. A steel nail is being forcefully ejected from the center of the coil due to the magnetic field. The copper wire is shiny and clearly visible, wrapped tightly around the plastic tube, and the electric connections are visible, with sparks showing the flow of electricity. The image should have a dynamic feeling, with motion blur on the nail to emphasize its rapid ejection. The background is simple and technical, focusing on the electromagnet components like the battery, copper wire, and the nail in motion. The setting should look like a DIY workshop, with tools and materials around but in a minimalistic way. The image should evoke a sense of DIY and hands-on experimentation, with a clear emphasis on the working mechanism of the electromagnet.
     """
     image_url = generate_image(image_description)
 
