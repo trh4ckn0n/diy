@@ -46,7 +46,7 @@ def ask_gpt():
         "=== **EXEMPLE DE FORMAT** ===\n\n"
         "<h2>1. Introduction</h2>\n"
         "<p>Ce projet explique comment fabriquer un électro-aimant capable d'éjecter un clou...</p>\n"
-        "<p><img src='URL_DE_L_IMAGE'></p>\n\n"
+        "<p><img src='URL_DE_L_IMAGE_1'></p>\n\n"
         "<h2>2. Matériel nécessaire</h2>\n"
         "<table>\n"
         "<tr><th>Nom</th><th>Où le trouver</th><th>Prix approximatif</th></tr>\n"
@@ -54,14 +54,14 @@ def ask_gpt():
         "<tr><td>Clou en acier doux</td><td>Quincaillerie / récup</td><td>1€</td></tr>\n"
         "<tr><td>Alimentation 9V</td><td>Magasin tech / récup</td><td>2-5€</td></tr>\n"
         "</table>\n"
-        "<p><img src='URL_DE_L_IMAGE'></p>\n\n"
+        "<p><img src='URL_DE_L_IMAGE_2'></p>\n\n"
         "<h2>3. Étapes de fabrication</h2>\n"
         "<h3>🛠️ Préparation</h3>\n"
         "<ul>\n"
         "<li>Coupez <strong>50 cm de fil</strong> et enlevez l'isolation aux extrémités.</li>\n"
         "<li>Enroulez <strong>100 tours</strong> autour du tube plastique.</li>\n"
         "</ul>\n"
-        "<p><img src='URL_DE_L_IMAGE'></p>\n\n"
+        "<p><img src='URL_DE_L_IMAGE_3'></p>\n\n"
     )
 
     # Envoi de la question à GPT-4
@@ -76,9 +76,6 @@ def ask_gpt():
     # Récupération de la réponse en HTML
     answer_html = response["choices"][0]["message"]["content"]
 
-    # Affichage de la réponse pour débogage
-    print("Réponse générée : ", answer_html)
-
     # Génération d'images pour chaque étape
     # On extrait les différentes étapes du tutoriel pour générer une image correspondante
     image_url_1 = generate_image("Image of an electromagnet in action with a nail being ejected, showing the copper wire and battery.")
@@ -86,12 +83,12 @@ def ask_gpt():
     image_url_3 = generate_image("Step-by-step process of building an electromagnet: wrapping wire around a tube, connecting to a battery.")
 
     # Remplacer les URL dans le HTML généré par les images pertinentes
-    answer_html = answer_html.replace("URL_DE_L_IMAGE", image_url_1, 1)
-    answer_html = answer_html.replace("URL_DE_L_IMAGE", image_url_2, 1)
-    answer_html = answer_html.replace("URL_DE_L_IMAGE", image_url_3, 1)
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_1", image_url_1, 1)
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_2", image_url_2, 1)
+    answer_html = answer_html.replace("URL_DE_L_IMAGE_3", image_url_3, 1)
 
     # Retourner la réponse dans la page HTML
     return render_template("index.html", response=Markup(answer_html))
 
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0")
