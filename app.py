@@ -12,7 +12,7 @@ load_dotenv()
 # Vérification de la clé API
 openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
-    print("⚠️ Erreur : Aucune clé API OpenAI détectée. Vérifiez votre fichie")
+    print("⚠️ Erreur : Aucune clé API OpenAI détectée. Vérifiez votre fichier .env")
 openai.api_key = openai_api_key
 
 app = Flask(__name__)
