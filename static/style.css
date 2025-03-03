@@ -92,6 +92,39 @@ input[type="submit"]:hover {
     box-shadow: 0 0 15px #FF5733;
 }
 
+/* Tableau - Quadrillage */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Pour un quadrillage sans espaces entre les bordures */
+    margin-top: 30px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 2px solid #00FF00; /* Bordures vertes fluo */
+    background-color: #333; /* Fond sombre */
+    color: #00FF00; /* Texte vert fluo */
+    font-size: 1.2rem;
+}
+
+th {
+    background-color: #222; /* Fond plus sombre pour les en-têtes */
+    text-shadow: 0 0 10px #00FF00; /* Effet lumineux sur les en-têtes */
+}
+
+tr:hover {
+    background-color: #444; /* Changement de couleur de fond sur survol */
+}
+
+td, th {
+    border-right: 2px solid #00FF00; /* Bordure à droite */
+}
+
+td:last-child, th:last-child {
+    border-right: none; /* Retirer la bordure à droite de la dernière cellule */
+}
+
 /* Animations */
 @keyframes pulse {
     0% {
