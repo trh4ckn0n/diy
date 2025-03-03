@@ -97,14 +97,14 @@ def ask_gpt():
 
     # Générer une image pour accompagner le tutoriel
     image_description = """
-A close-up of an electromagnet in action, showing a strong copper wire wound around a plastic tube, 
-powered by a 9V battery, with a steel nail being ejected by the force of the magnetic field. 
-The image highlights the bright, shiny copper wire, the electric connections, and the visible sparks 
-indicating the flow of electricity. The nail is being propelled out of the center of the coil, showcasing the power of the electromagnet.
-There should be a dynamic feel to the image, with motion blur on the nail to emphasize its rapid ejection, 
-and a clear focus on the components of the electromagnet, such as the battery, copper wire, and nail.
-"""
-image_url = generate_image(image_description)
+    A close-up of an electromagnet in action, showing a strong copper wire wound around a plastic tube, 
+    powered by a 9V battery, with a steel nail being ejected by the force of the magnetic field. 
+    The image highlights the bright, shiny copper wire, the electric connections, and the visible sparks 
+    indicating the flow of electricity. The nail is being propelled out of the center of the coil, showcasing the power of the electromagnet.
+    There should be a dynamic feel to the image, with motion blur on the nail to emphasize its rapid ejection, 
+    and a clear focus on the components of the electromagnet, such as the battery, copper wire, and nail.
+    """
+    image_url = generate_image(image_description)
 
     # Ajouter l'image dans le contenu HTML
     image_html = f'<img src="{image_url}" alt="Schéma du montage électro-aimant" style="width:100%; max-width:600px; margin:20px 0;">'
