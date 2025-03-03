@@ -56,16 +56,17 @@
     <h1>Projet d'Electro-aimant Ejecteur de Clou</h1>
 
     <form action="/ask_gpt" method="POST">
-        <label for="question">Posez une question sur le projet :</label><br>
-        <input type="text" id="question" name="question" required><br><br>
-        <input type="submit" value="Obtenir la réponse">
+        <label for="question">Posez votre question :</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Poser la question</button>
     </form>
 
-    <hr>
-
-    <h2>Réponse :</h2>
-    <div id="response">{{ response|safe }}</div>
-
+    {% if response %}
+    <div>
+        <h2>Réponse :</h2>
+        <div>{{ response|safe }}</div>
+    </div>
+    {% endif %}
     <script src="static/script.js"></script> <!-- Référence au JavaScript -->
 </body>
 </html>
