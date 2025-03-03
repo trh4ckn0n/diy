@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request
 import openai
 from markupsafe import Markup
-
-# Configuration de l'API OpenAI
 import os
 from dotenv import load_dotenv
 
@@ -16,6 +14,18 @@ if not openai_api_key:
 openai.api_key = openai_api_key
 
 app = Flask(__name__)
+
+# Fonction pour générer des images avec DALL-E
+def generate_image(description):
+    # Exemple avec l'API DALL-E pour générer une image
+    response = openai.Image.create(
+        prompt=description,
+        n=1,
+        size="1024x1024"
+    )
+    # Récupération de l'URL de l'image générée
+    image_url = response['data'][0]['url']
+    return image_url
 
 # Page d'accueil
 @app.route("/")
@@ -85,8 +95,13 @@ def ask_gpt():
     # Récupération de la réponse en HTML
     answer_html = response["choices"][0]["message"]["content"]
 
-    # Affichage de la réponse pour débogage
-    print("Réponse générée : ", answer_html)
+    # Générer une image pour accompagner le tutoriel
+    image_description = "Schéma du montage électro-aimant"
+    image_url = generate_image(image_description)
+
+    # Ajouter l'image dans le contenu HTML
+    image_html = f'<img src="{image_url}" alt="Schéma du montage électro-aimant" style="width:100%; max-width:600px; margin:20px 0;">'
+    answer_html += image_html
 
     # Retourner la réponse dans la page HTML
     return render_template("index.html", response=Markup(answer_html))
