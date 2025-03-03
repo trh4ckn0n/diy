@@ -97,7 +97,7 @@ def ask_gpt():
 
     # Générer une image pour accompagner le tutoriel
     image_description = """
-    Generer une image representant un bricolage pour fabriquer une bobine en cuivre qui quand on place un clou au centre et que l'on fais passer un courant dans la bobine, ejecte le clou, c'est un genre d'electro-aimant
+    "An electro-magnetism DIY project in action, illustrating a copper coil with a steel nail at the center. The coil is powered by a 9V battery, and when current passes through the copper wire, the nail is ejected due to the magnetic field. The image shows a close-up of the copper coil tightly wound around a plastic tube, with clear visibility of the shiny copper wire. The battery is visible and connected with wires. Sparks are emitted from the connections to show the electricity flow. The steel nail is visibly being pushed away from the coil, demonstrating the ejection force. The image should have a sense of motion with a blurred nail to emphasize the rapid action. The setting is a minimalistic DIY workshop, with tools and materials like a soldering iron, pliers, and a workbench in the background. The focus should be on the interaction between the electricity, the copper coil, and the nail, with a technical yet hands-on DIY atmosphere."
     """
     image_url = generate_image(image_description)
 
